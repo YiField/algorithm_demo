@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+
+	// var tree=arrToTree(root);
+	// console.log(tree);
+	if(!root)return true;
+
+
+};
+function isMirror(t1,t2){
+	if(t1==null&&t2==null)return true;
+	if(t1==null||t2==null)return false;
+	return (t1.val==t2.val)&&isMirror(t1.left,t2.right)&&isMirror(t1.right,t2.left);
+}
+function arrToTree(root){
+	var r=new TreeNode(root[0]);
+	// var pre=r;
+	// var cur=null;
+	// for(var i=1;i<root.length;i++){
+	// 	cur = new TreeNode(i);
+	// 	if(i%2==1){
+	// 		pre.left=cur;
+	// 	}else{
+	// 		pre.right=cur;
+	// 	}
+	// 	pre=cur;
+	// }
+	var left,right,cur=null;
+	var childLen=2;
+	// cur=r;
+	for(var i=0;i<root.length-2;i+=3){
+		// if(i%2==1){
+		// 	left=new TreeNode(i);
+		// 	cur.left=left;
+		// }else{
+		// 	right=new TreeNode(i);
+		// 	cur.right=right;
+		// }
+		// childLen++;
+		if(i==0){
+			cur=r;
+		}else{
+			// cur=new TreeNode(root[i]);
+			if(i%2==1){
+				cur=cur.left;
+			}else{
+				cur=cur.right;
+			}
+		}
+		left=new TreeNode(root[2*i+1]);
+		right=new TreeNode(root[2*i+2]);
+		cur.left=left;
+		cur.right=right;
+
+
+
+	}
+	return r;
+}
+function TreeNode(val){
+	this.val=val;
+	this.left=this.right=null;
+}
+var root=[1,2,3,4,5,6]
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <script>
+        var str1='123456'
+        var str2='-12345'
+        var reverse = function(x) {
+            var str = (x + '');
+            var arr=[];
+            var startidx=0;
+            for(var i = 0;i<Math.ceil(str.length/2);i++){
+                if(str[i]=='-'){
+                    startidx = 1;
+                    // arr[0]='-';
+                   // arr[str.length-1]=str[str.length-1+startidx]
+                    arr[0]=str[0];
+                    arr[startidx]=str[str.length-1]
+                }else if(i!=str.length-1-i){
+                    temp1 = str.length-1-i+startidx;
+                    temp2=i+startidx;
+                    temp3=str.length-1-i;
+                    arr[temp1]=str[i];
+                    arr[temp2]=str[temp3];
+                    // arr[i+startidx]=str[]
+                    // arr[str.length-1]=str[str.length-1+startidx]
+                }else{
+                    arr[i+startidx]=str[i]
+                }
+            }
+            return arr.join('')
+        }
+    </script>
+</html>

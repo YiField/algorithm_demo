@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    // var rotateNums=[];
+    // var rotaTime=k%nums.length;
+    // for(var i=0;i<nums.length;i++){
+    // 	if(i-rotaTime<0){
+    // 		rotateNums[i]=nums[i-rotaTime+nums.length]
+    // 	}else{
+    // 		rotateNums[i]=nums[i-rotaTime];
+    // 	}
+    // }
+    // console.log(rotateNums);
+    var originNums=nums.splice("");
+    var rotaTime=k%originNums.length;
+    for(var i = 0; i<originNums.length;i++){
+    	if(i-rotaTime<0){
+    		nums[i]=originNums[i-rotaTime+originNums.length]
+    	}else{
+    		nums[i]=originNums[i-rotaTime];
+    	}
+    }
+console.log(nums)
+};
+var nums=[1,2,3,4,5,6,7];
+
+
+</script>
+</body>
+</html>

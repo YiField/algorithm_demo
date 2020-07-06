@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function sushu(n){
+		if(n==0||n==1)return [n];
+		let arr=[];
+		for(let i=1;i<=n;i++){
+			if(isSushu(i)){
+				arr.push(i)
+			}
+		}
+		return arr;
+	}
+	function isSushu(num){
+		// let flag
+		for(let i=2;i*i<=num;i++){//a*b=num,a|b<sqrt(num)
+			if((num%i==0)&&num!=i){
+				// break;
+				return false;
+			}
+		}
+		return true;
+	}
+
+	function sushu2(n){
+		if(n==0||n==1)return [n];
+		if(n==2)return[1,2];
+		let arr=[];
+		for(let i=1;i<=n/2;i++){
+			for(let j=2;j<=n/2;j++){
+				if((j%2)!=1){
+					if(i%j==0){
+						arr.push(j)
+						break ;
+					}
+				}
+			}
+		}
+		return arr;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function ThreeSumTwoPointer(arr){
+		var ctn=0;
+		var len=arr.length;
+		arr.sort((a,b)=>{
+			return a-b;
+		});
+		for(var i=0;i<len-2;i++){
+			var l=i+1,h=len-1,target=-arr[i];
+			while(l<h){
+			var count=arr[l]+arr[h];
+			if(target==count){
+				ctn++;
+				l++;
+				h--;
+			}else if(target<count){
+				h--;
+			}else{
+				l++;
+			}
+		}
+		}
+		return ctn;
+	}
+	var arr=[-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0];
+
+	/**
+	 * @param {number[]} nums
+	 * @return {number[][]}
+	 */
+	var threeSum = function(nums) {
+
+		var arrs=[];
+		var ctn=0;
+		var len=nums.length;
+		if(len<3){
+			return arrs;
+		}
+
+		nums.sort((a,b)=>{return a-b});
+
+		for(var i=0;i<len-2;i++){
+			if(nums[i]>0)break;
+			if(i>0&&nums[i]==nums[i-1])continue;
+			var l=i+1,h=len-1,target=-nums[i];
+			while(l<h){
+				var sum=nums[l]+nums[h];
+				if(target==sum){
+					while((l<h)&&(nums[l]==nums[l+1])){
+						l++;
+					}
+					while((l<h)&&(nums[h]==nums[h-1])){
+						h--;
+					}
+					var arr=[nums[i],nums[l],nums[h]];
+					arrs.push(arr);
+					l++;
+					h--;
+					ctn++;
+				}else if(target>sum){
+					l++;
+				}else{
+					h--;
+				}
+			}
+		}
+		console.log('ctn'+ctn);
+		return arrs;
+	};
+</script>
+</body>
+</html>

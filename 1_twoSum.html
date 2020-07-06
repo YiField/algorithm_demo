@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	// var nums=[2,7,11,15];
+	var nums=[3,2,4]
+	var target=6;
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for (var i = 0;i < nums.length;i++) {
+    	for(var j=i+1;j<nums.length;j++){
+    		var a=nums[i];
+    		var b=nums[j];
+    		if(a+b==target){
+    			return [i,j];
+
+    		}
+    	}
+    }
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    var difStr=[];
+    var maxDifStr=[];
+    var len=0;
+    var maxLen=0;
+    for(var i=0;i<s.length;i++){
+    	var str=s[i];
+    	var searchIndex=difStr.indexOf(s[i]);
+    	if(searchIndex==-1){
+    		difStr.push(s[i]);
+    		len++;
+    		// maxLen=maxLen<len?len:maxLen;
+    		if(maxLen<len){
+    			maxLen=len;
+    			maxDifStr=difStr;
+    		}
+    	}else{
+    		// maxLen=maxLen<len?len:maxLen;
+    		if(maxLen<len){
+    			maxLen=len;
+    			maxDifStr=difStr;
+    		}
+    		// difStr=[];
+    		// difStr.push(str);
+    		// len=1;
+    		 
+    		// searchIndex=searchIndex>0?0:
+    		difStr=difStr.slice(searchIndex+1,difStr.length);
+    		
+    		difStr.push(str);
+    		len=difStr.length;
+
+
+    	}
+    }
+    return maxLen;
+    console.log('len:'+maxLen);
+    console.log('difStr:'+difStr);
+    console.log('maxDifStr:'+maxDifStr);
+
+
+};
+</script>
+</body>
+</html>

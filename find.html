@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	// 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+	function Find2(target, array){
+    // write code here
+	    var i=0,j=0;
+	    var len=array.length;
+	    var hasTarget=false;
+
+
+   		var start=i,end=array[i].length-1-j;
+   			var m=Math.floor((start+end)/2);
+   		while(start<end){
+   			m=Math.floor((start+end)/2);
+   			if(array[i][m]>target){
+   				end=m-1;
+   			}else if(array[i][m]<target){
+   				start=m+1;
+   			}else{
+   				hasTarget=true;
+   				break;
+   			}
+   		}
+   		if(hasTarget){
+   			return [i,j];
+   		}
+   		i=j=0;
+   		var start=i;end=array.length-1-j;	
+   		while(start<end){
+   			var m=Math.floor((start+end)/2);
+   			if(array[m][i]>target){
+   				end=m-1;
+   			}else if(array[m][i]<target){
+   				start=m+1;
+   			}else{
+   				hasTarget=true;
+   				break;
+   			}
+   		}
+   		if(hasTarget){
+   			return [i,j];
+   		}
+   		return [-1,-1];
+}
+function Find(target, array)
+{
+    // write code here
+    lenX = array.length;
+    lenY = array[0].length;
+    for (var i = lenX - 1, j = 0; i >= 0 && j < lenY;) {
+        if (target > array[i][j]) {
+            j++;
+        }
+        else if (target < array[i][j]) {
+            i--;
+        }
+        else {
+            return true;
+        }
+    }
+    return false
+}
+var array=[
+			[1,2,3,4],
+			[5,7,8,9],
+			[6,7,8,9]
+]
+</script>
+</body>
+</html>

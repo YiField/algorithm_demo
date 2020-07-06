@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	//错误
+	function binarySearch(arr,target){
+		var start=0;
+		var end =arr.length-1;
+		var flag=true;
+		var mid=Math.floor((start+end)/2);
+
+		while(flag){
+			mid=Math.floor((start+end)/2);
+		if(arr[mid]>target){
+			end--;
+		}else if(arr[mid]<target){
+			start++;
+		}else{
+			flag=false;
+		}
+		if(end==start){
+			if(target!=arr[end]){
+				flag=false;
+				mid=-1;
+			}
+		}
+	}
+	return mid;
+	}
+
+	//
+	function binarySearch2(arr,target){
+		var l = 0,h=arr.length-1;
+		while(l<=h){
+			int m=l+(h-l)/2;
+			if(arr[m]==target){
+				return m;
+			}else if(arr[m]>target){
+				h=m-1;
+			}else{
+				l=m+1;
+			}
+		}
+		return -1;
+	}
+	var arr=[1,2,3,4,5,6];
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/*
+	有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位。*/
+	function tick3Out(n){
+		var head=new listNode(1);
+		var prenode=head;
+		var lastnode=null;
+		for(var i=2;i<=n;i++){
+			var node=new listNode(i);
+			prenode.next=node;
+			prenode=node;
+			if(i==n){
+				lastnode=node;
+			}
+		}
+		lastnode.next=head;
+		console.log(head);
+		var curNode=head;
+		var out_number=3;
+		var start_number=1;
+		var count_number=1;
+		while(curNode.next){
+			var next=curNode.next;
+			if(next.val==curNode.val){
+				break;
+				
+				return next.val;
+			}
+			count_number++;
+			if(count_number==out_number){
+				var next2=next.next;
+				curNode.next=next2;
+				curNode=next2;
+				console.log('out'+next.val)
+				count_number = 1;
+			}else{
+				curNode=next;
+			}
+
+		}
+
+	}
+	function listNode(val){
+		this.val=val;
+		this.next=null;
+	}
+
+</script>
+</body>
+</html>

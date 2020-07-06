@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+/**
+ * @param {string} s
+ * @return {string}
+ 给定一个字符串 s，找到 s 中最长的回文子串。
+ 你可以假设 s 的最大长度为 1000。
+ */
+var longestPalindrome = function(s) {
+
+	// var arr=s.split('');
+	// checkIt(s,1,1);
+	// var index=checkIt(s,3,3);
+	// console.log('index'+index[0]+'--'+index[1])
+
+	//暴力
+	var maxlen=0;
+	var starti=0;
+	var endi=0;
+	for(var i=0;i<s.length;i++){
+		for(var j=i+1;j<s.length+1;j++){
+			var str=s.slice(i,j);
+			var isp=isPalindorme(str);
+			if(isp&&str.length>maxlen){
+				starti=i;
+				endi=j;
+				maxlen=str.length;
+			}
+		}
+	}
+	// console.log(s.slice(starti,endi))
+	if(endi==starti);
+	return "";
+	return s.slice(starti,endi);
+	
+
+};
+function isPalindorme(s){
+	if(s==""||s.length==1)return true;
+	var len=Math.floor(s.length/2);
+	var flag=true;
+	for(var i=0;i<len;i++){
+		if(s[i]!=s[s.length-1-i]){
+			flag=false;
+			break;
+		}
+	}
+	return flag;
+}
+
+
+
+function checkIt(str,pivot,checkLen){
+
+	var isHuiWen=false;
+	var huiwenNum=0;
+	var huiwenIndex=[];
+	var isFirst=false;
+	for(var i=1;i<=checkLen;i++){
+		if(!isHuiWen&&i!=1){
+			huiwenIndex[1]=i;
+			return huiwenIndex;
+		}
+		var left=str[pivot-i];
+		var right=str[pivot+i];
+		if(left==right){
+			huiwenNum++;
+			isHuiWen=true;
+			if(!isFirst){
+				huiwenIndex[0]=i;
+				isFirst=true;
+			}
+			
+		}else{
+			isHuiWen=false;
+
+		}
+		if(isHuiWen){
+			huiwenIndex[1]=checkLen;
+			return huiwenIndex;
+		}
+	}
+
+	console.log('huiwenNum'+huiwenNum);
+
+}
+
+</script>
+</body>
+</html>

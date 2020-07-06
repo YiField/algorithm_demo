@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/*
+	一球从100米高度自由落下，每次落地后反跳回原高度的一半；再落下，求它在第n次落地时，共经过多少米？第n次反弹多高？（n<=10）*/
+	function calHeightAndDes(n){
+		let H = 100;
+		let time=0;
+		let dis=0;
+		let curH=0;
+		for(let i = 0;i < n;i++){
+			if(i==0){
+			dis+=H;
+
+		}else{
+			dis+=2*H
+		}
+			H=H/2;
+			curH=H;
+			time++;
+		}
+		// console.log(dis+' '+curH)
+		print(dis+" "+curH);
+	}
+	// calHeightAndDes(1)
+	while(line=readline()){
+		  var lines = line.split(' ');
+		    var n = parseInt(lines[0]);
+		    calHeightAndDes(n);
+
+	}
+</script>
+</body>
+</html>

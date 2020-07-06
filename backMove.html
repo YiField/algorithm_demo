@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function backMove(arr,n){
+		let k=n%arr.length;
+		let temp=0;
+		for(let i=0;i<k;i++){
+			 temp=arr[arr.length-1]
+			for(let j=arr.length-2;j>=0;j--){
+				arr[j+1]=arr[j];
+			}
+			arr[0]=temp;
+		}
+		return arr;
+	}
+	function backMove2(arr,n){
+		let k=n%arr.length;
+		arr.reverse();
+		let k2=arr.length-k;
+		// arr.reverse()
+
+		// for(let i=0;i<k/2;i++){
+		// 	let a=arr[i];
+		// 	arr[i]=arr[k-i];
+		// 	arr[k-i]=a;
+		// }
+		// for(let j=k;j<(arr.length-k)/2;j++){
+		// 	let b=arr[j];
+		// 	arr[j]=arr[arr.length-j-1];
+		// 	arr[arr.length-j-1]=b;
+		// }
+
+		// for(let i=0;i<)
+		return arr;
+	}
+
+</script>
+</body>
+</html>
